@@ -1,6 +1,8 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +30,98 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <main className="flex flex-col min-h-screen">
+          <Navbar />
+          {children}
+        </main>
+
+        {/* Enhanced Footer */}
+        <footer className="bg-gray-900 text-gray-300 py-6">
+          <div className="container mx-auto px-4">
+            {/* Top Section */}
+            <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-4 mb-4">
+              <div>
+                <h2 className="text-xl font-semibold text-white">
+                  RecruitMantra
+                </h2>
+                <p className="text-sm mt-1">
+                  Your trusted partner in talent acquisition.
+                </p>
+              </div>
+              <nav className="flex space-x-4 mt-4 md:mt-0">
+                <Link href="/about" className="text-gray-400 hover:text-gray-100 transition">
+                  About Us
+                </Link>
+                <Link href="/services" className="text-gray-400 hover:text-gray-100 transition">
+                  Services
+                </Link>
+                <Link href="/contact" className="text-gray-400 hover:text-gray-100 transition">
+                  Contact
+                </Link>
+                <Link href="/privacy" className="text-gray-400 hover:text-gray-100 transition">
+                  Privacy Policy
+                </Link>
+              </nav>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="flex flex-col md:flex-row justify-between items-center text-sm">
+              <p className="text-gray-500">
+                © 2024 RecruitMantra. All rights reserved.
+              </p>
+              <div className="flex space-x-4 mt-4 md:mt-0">
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                  className="hover:text-gray-100 transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M22.46 6.03c-.77.35-1.6.58-2.47.69.89-.54 1.58-1.4 1.91-2.42-.83.5-1.76.86-2.75 1.06a4.48 4.48 0 0 0-7.64 4.08A12.73 12.73 0 0 1 2.23 4.2a4.48 4.48 0 0 0 1.39 5.98 4.4 4.4 0 0 1-2.03-.56v.06c0 2.2 1.57 4.03 3.65 4.45-.38.1-.79.16-1.2.16-.29 0-.57-.03-.85-.08a4.49 4.49 0 0 0 4.2 3.12 9.01 9.01 0 0 1-5.6 1.93c-.36 0-.72-.02-1.08-.06a12.7 12.7 0 0 0 6.89 2.02c8.27 0 12.8-6.85 12.8-12.8v-.58c.88-.64 1.64-1.44 2.25-2.35z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="hover:text-gray-100 transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20.45 20.45h-3.64v-5.65c0-1.35-.03-3.1-1.89-3.1-1.89 0-2.18 1.48-2.18 3v5.76h-3.64V8.98h3.5v1.56h.05c.49-.93 1.69-1.89 3.48-1.89 3.72 0 4.4 2.44 4.4 5.62v6.18zM4.96 7.42a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM6.77 20.45H3.15V8.98h3.62v11.47zM22.22 0H1.78A1.78 1.78 0 0 0 0 1.78v20.44C0 23.22.78 24 1.78 24h20.44A1.78 1.78 0 0 0 24 22.22V1.78A1.78 1.78 0 0 0 22.22 0z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="hover:text-gray-100 transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M22.675 0h-21.35C.595 0 0 .585 0 1.308v21.383C0 23.413.592 24 1.325 24h10.988v-9.294H9.428v-3.622h2.886v-2.67c0-2.866 1.747-4.429 4.298-4.429 1.22 0 2.27.09 2.576.132v2.985h-1.767c-1.388 0-1.654.661-1.654 1.63v2.352h3.305l-.431 3.622h-2.874V24h5.64c.729 0 1.325-.585 1.325-1.308V1.308C24 .585 23.406 0 22.675 0z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
